@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MaestrosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_detalle_profesor_materia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idProfesor" Type="int" />
+          <Property Name="idMateria" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_materia">
+          <Key>
+            <PropertyRef Name="idMateria" />
+          </Key>
+          <Property Name="idMateria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreMateria" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tbl_profesor">
+          <Key>
+            <PropertyRef Name="idProfesor" />
+          </Key>
+          <Property Name="idProfesor" Type="int" Nullable="false" />
+          <Property Name="nombreProfesor" Type="varchar" MaxLength="25" />
+          <Property Name="apellidoProfesor" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <Association Name="FK__tbl_detal__idMat__1B0907CE">
+          <End Role="tbl_materia" Type="Self.tbl_materia" Multiplicity="0..1" />
+          <End Role="tbl_detalle_profesor_materia" Type="Self.tbl_detalle_profesor_materia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_materia">
+              <PropertyRef Name="idMateria" />
+            </Principal>
+            <Dependent Role="tbl_detalle_profesor_materia">
+              <PropertyRef Name="idMateria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_detal__idPro__1A14E395">
+          <End Role="tbl_profesor" Type="Self.tbl_profesor" Multiplicity="0..1" />
+          <End Role="tbl_detalle_profesor_materia" Type="Self.tbl_detalle_profesor_materia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_profesor">
+              <PropertyRef Name="idProfesor" />
+            </Principal>
+            <Dependent Role="tbl_detalle_profesor_materia">
+              <PropertyRef Name="idProfesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MaestrosModelStoreContainer">
+          <EntitySet Name="tbl_detalle_profesor_materia" EntityType="Self.tbl_detalle_profesor_materia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_materia" EntityType="Self.tbl_materia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_profesor" EntityType="Self.tbl_profesor" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tbl_detal__idMat__1B0907CE" Association="Self.FK__tbl_detal__idMat__1B0907CE">
+            <End Role="tbl_materia" EntitySet="tbl_materia" />
+            <End Role="tbl_detalle_profesor_materia" EntitySet="tbl_detalle_profesor_materia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_detal__idPro__1A14E395" Association="Self.FK__tbl_detal__idPro__1A14E395">
+            <End Role="tbl_profesor" EntitySet="tbl_profesor" />
+            <End Role="tbl_detalle_profesor_materia" EntitySet="tbl_detalle_profesor_materia" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MaestrosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_detalle_profesor_materia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idProfesor" Type="Int32" />
+          <Property Name="idMateria" Type="Int32" />
+          <NavigationProperty Name="tbl_materia" Relationship="Self.FK__tbl_detal__idMat__1B0907CE" FromRole="tbl_detalle_profesor_materia" ToRole="tbl_materia" />
+          <NavigationProperty Name="tbl_profesor" Relationship="Self.FK__tbl_detal__idPro__1A14E395" FromRole="tbl_detalle_profesor_materia" ToRole="tbl_profesor" />
+        </EntityType>
+        <EntityType Name="tbl_materia">
+          <Key>
+            <PropertyRef Name="idMateria" />
+          </Key>
+          <Property Name="idMateria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreMateria" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_detalle_profesor_materia" Relationship="Self.FK__tbl_detal__idMat__1B0907CE" FromRole="tbl_materia" ToRole="tbl_detalle_profesor_materia" />
+        </EntityType>
+        <EntityType Name="tbl_profesor">
+          <Key>
+            <PropertyRef Name="idProfesor" />
+          </Key>
+          <Property Name="idProfesor" Type="Int32" Nullable="false" />
+          <Property Name="nombreProfesor" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="apellidoProfesor" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_detalle_profesor_materia" Relationship="Self.FK__tbl_detal__idPro__1A14E395" FromRole="tbl_profesor" ToRole="tbl_detalle_profesor_materia" />
+        </EntityType>
+        <Association Name="FK__tbl_detal__idMat__1B0907CE">
+          <End Role="tbl_materia" Type="Self.tbl_materia" Multiplicity="0..1" />
+          <End Role="tbl_detalle_profesor_materia" Type="Self.tbl_detalle_profesor_materia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_materia">
+              <PropertyRef Name="idMateria" />
+            </Principal>
+            <Dependent Role="tbl_detalle_profesor_materia">
+              <PropertyRef Name="idMateria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_detal__idPro__1A14E395">
+          <End Role="tbl_profesor" Type="Self.tbl_profesor" Multiplicity="0..1" />
+          <End Role="tbl_detalle_profesor_materia" Type="Self.tbl_detalle_profesor_materia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_profesor">
+              <PropertyRef Name="idProfesor" />
+            </Principal>
+            <Dependent Role="tbl_detalle_profesor_materia">
+              <PropertyRef Name="idProfesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MaestrosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_detalle_profesor_materia" EntityType="Self.tbl_detalle_profesor_materia" />
+          <EntitySet Name="tbl_materia" EntityType="Self.tbl_materia" />
+          <EntitySet Name="tbl_profesor" EntityType="Self.tbl_profesor" />
+          <AssociationSet Name="FK__tbl_detal__idMat__1B0907CE" Association="Self.FK__tbl_detal__idMat__1B0907CE">
+            <End Role="tbl_materia" EntitySet="tbl_materia" />
+            <End Role="tbl_detalle_profesor_materia" EntitySet="tbl_detalle_profesor_materia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_detal__idPro__1A14E395" Association="Self.FK__tbl_detal__idPro__1A14E395">
+            <End Role="tbl_profesor" EntitySet="tbl_profesor" />
+            <End Role="tbl_detalle_profesor_materia" EntitySet="tbl_detalle_profesor_materia" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MaestrosModelStoreContainer" CdmEntityContainer="MaestrosEntities">
+          <EntitySetMapping Name="tbl_detalle_profesor_materia">
+            <EntityTypeMapping TypeName="MaestrosModel.tbl_detalle_profesor_materia">
+              <MappingFragment StoreEntitySet="tbl_detalle_profesor_materia">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idProfesor" ColumnName="idProfesor" />
+                <ScalarProperty Name="idMateria" ColumnName="idMateria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_materia">
+            <EntityTypeMapping TypeName="MaestrosModel.tbl_materia">
+              <MappingFragment StoreEntitySet="tbl_materia">
+                <ScalarProperty Name="idMateria" ColumnName="idMateria" />
+                <ScalarProperty Name="nombreMateria" ColumnName="nombreMateria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_profesor">
+            <EntityTypeMapping TypeName="MaestrosModel.tbl_profesor">
+              <MappingFragment StoreEntitySet="tbl_profesor">
+                <ScalarProperty Name="idProfesor" ColumnName="idProfesor" />
+                <ScalarProperty Name="nombreProfesor" ColumnName="nombreProfesor" />
+                <ScalarProperty Name="apellidoProfesor" ColumnName="apellidoProfesor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

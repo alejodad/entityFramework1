@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoMVC1", "ProyectoMVC1\ProyectoMVC1.csproj", "{B59EFFFA-FA84-4B22-BE53-440360FF9182}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{729EA51C-B734-48CE-B25A-36257F4DAB38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{EDECDA65-F8A8-49FA-9A11-D8C5C041375D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B59EFFFA-FA84-4B22-BE53-440360FF9182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B59EFFFA-FA84-4B22-BE53-440360FF9182}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B59EFFFA-FA84-4B22-BE53-440360FF9182}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B59EFFFA-FA84-4B22-BE53-440360FF9182}.Release|Any CPU.Build.0 = Release|Any CPU
+		{729EA51C-B734-48CE-B25A-36257F4DAB38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{729EA51C-B734-48CE-B25A-36257F4DAB38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{729EA51C-B734-48CE-B25A-36257F4DAB38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{729EA51C-B734-48CE-B25A-36257F4DAB38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDECDA65-F8A8-49FA-9A11-D8C5C041375D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDECDA65-F8A8-49FA-9A11-D8C5C041375D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDECDA65-F8A8-49FA-9A11-D8C5C041375D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDECDA65-F8A8-49FA-9A11-D8C5C041375D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B561668-2075-45F5-908D-7C7CD43D856F}
+	EndGlobalSection
+EndGlobal
